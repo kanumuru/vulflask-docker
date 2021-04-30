@@ -19,7 +19,7 @@ COPY . .
 
 EXPOSE 5000
 
-RUN cd app/app
+RUN cd app
 
-CMD [ "python3","app.py"]
+CMD [ "python3","app/app.py"]
 
