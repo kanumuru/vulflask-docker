@@ -191,6 +191,7 @@ def gen_pdf():
     print("email is in genpdf",email)
     ref_user = User.get_or_none(User.email == email)
     if ref_user:
+        print("ref_user is",ref_user)
         html_string = """
         <html>
             <head>
