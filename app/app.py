@@ -217,10 +217,14 @@ def gen_pdf():
            pass
         print("I am here at before pdf error")
         html = HTML(string=html_string)
+        print("I am here at before pdf error 1")
+
         name = "{}-{}.pdf".format(
             str(email).replace("@", "-"), int(datetime.now().timestamp())
         )
+        print("I am here at before pdf error 2")
         html.write_pdf("static/{}".format(name))
+        print("I am here at before pdf error 3")
         return send_from_directory(directory="static", filename=name)
 
     return "Unable to find route"
