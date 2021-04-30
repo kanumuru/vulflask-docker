@@ -21,5 +21,9 @@ EXPOSE 5000
 
 RUN cd app
 
+RUN mkdir static
+
+RUN mv static app/static
+
 CMD [ "python3","app/app.py"]
 

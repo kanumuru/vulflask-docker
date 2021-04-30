@@ -21,7 +21,7 @@ import os
 DATABASE = "salesapp.db"
 SECRET_KEY = token_urlsafe(32)
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__, static_folder="app/static")
 app.config.from_object(__name__)
 # app.config.update(
 #     SESSION_COOKIE_SECURE = False,
@@ -225,7 +225,7 @@ def gen_pdf():
         print("I am here at before pdf error 2")
         html.write_pdf("app/static/{}".format(name))
         print("I am here at before pdf error 3")
-        return send_from_directory(directory="app/static", filename=name)
+        return send_from_directory(directory="static", filename=name)
 
     return "Unable to find route"
 
