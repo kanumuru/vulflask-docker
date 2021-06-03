@@ -225,7 +225,7 @@ def gen_pdf():
         print("I am here at before pdf error 2")
         html.write_pdf("app/static/{}".format(name))
         print("I am here at before pdf error 3")
-        return send_from_directory(directory="static", filename=name)
+        return send_from_directory(directory="static", path=name)
 
     return "Unable to find route"
 
