@@ -188,10 +188,8 @@ def signup():
 @login_required
 def gen_pdf():
     email = session.get("email")
-    print("email is in genpdf",email)
     ref_user = User.get_or_none(User.email == email)
     if ref_user:
-        print("ref_user is",ref_user)
         html_string = """
         <html>
             <head>
@@ -215,16 +213,11 @@ def gen_pdf():
             os.makedirs('static')
         except OSError as e:
            pass
-        print("I am here at before pdf error")
         html = HTML(string=html_string)
-        print("I am here at before pdf error 1")
-
         name = "{}-{}.pdf".format(
             str(email).replace("@", "-"), int(datetime.now().timestamp())
         )
-        print("I am here at before pdf error 2")
         html.write_pdf("app/static/{}".format(name))
-        print("I am here at before pdf error 3")
         return send_from_directory(directory="static", path=name)
 
     return "Unable to find route"
